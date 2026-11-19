@@ -1,0 +1,55 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: uptourism_db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: uptourism_user
+      POSTGRES_PASSWORD: uptourism_secure_password_2026
+      POSTGRES_DB: uptourism_dss
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U uptourism_user -d uptourism_dss"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: uptourism_backend
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: postgresql://uptourism_user:uptourism_secure_password_2026@db:5432/uptourism_dss
+      SECRET_KEY: uptourism-decision-support-secret-key-2026-hackathon-secure
+      LLM_PROVIDER: demo
+      OPENAI_API_KEY: ""
+      GEMINI_API_KEY: ""
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend/uploads:/app/backend/uploads
+      - ./backend/reports_cache:/app/backend/reports_cache
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: uptourism_frontend
+    restart: unless-stopped
+    depends_on:
+      - backend
+    ports:
+      - "5173:80"
+
+volumes:
+  pgdata:
