@@ -1,4 +1,10 @@
-from pydantic import BaseModel, EmailStr, Field
+from pydantic import BaseModel, Field
+try:
+    import email_validator
+    from pydantic import EmailStr
+except ImportError:
+    EmailStr = str
+
 from typing import Optional, List, Dict, Any
 from datetime import date, datetime
 
