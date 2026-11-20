@@ -26,6 +26,7 @@ export const App: React.FC = () => {
   const [logoutNotice, setLogoutNotice] = useState<string | null>(null);
   const [activeAlertsCount, setActiveAlertsCount] = useState<number>(0);
   const [aiAssistantInitialPrompt, setAiAssistantInitialPrompt] = useState<string>('');
+  const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState<boolean>(false);
 
   // Switch User Modal State
   const [showSwitchModal, setShowSwitchModal] = useState<boolean>(false);
@@ -161,20 +162,26 @@ export const App: React.FC = () => {
         onNavigateToRisks={() => {
           setSelectedProjectId(null);
           setActiveTab('risks');
+          setIsMobileSidebarOpen(false);
         }}
+        isMobileSidebarOpen={isMobileSidebarOpen}
+        onToggleMobileSidebar={() => setIsMobileSidebarOpen(prev => !prev)}
       />
 
-      <div className="flex-1 flex">
+      <div className="flex-1 flex flex-col md:flex-row min-w-0">
         <Sidebar
           activeTab={activeTab}
           onTabChange={(tab) => {
             setSelectedProjectId(null);
             setActiveTab(tab);
+            setIsMobileSidebarOpen(false);
           }}
           activeAlertsCount={activeAlertsCount}
+          isOpen={isMobileSidebarOpen}
+          onClose={() => setIsMobileSidebarOpen(false)}
         />
 
-        <main className="flex-1 p-6 md:p-8 overflow-y-auto max-h-[calc(100vh-61px)]">
+        <main className="flex-1 p-3.5 sm:p-6 md:p-8 overflow-y-auto max-h-[calc(100vh-61px)] w-full min-w-0">
           {selectedProjectId ? (
             <ProjectDetailPage
               projectId={selectedProjectId}
@@ -234,8 +241,8 @@ export const App: React.FC = () => {
 
       {/* Switch Persona / Login Modal */}
       {showSwitchModal && (
-        <div className="fixed inset-0 bg-slate-900/50 backdrop-blur-xs flex items-center justify-center p-4 z-50">
-          <div className="bg-white rounded-xl border border-slate-200 shadow-2xl max-w-md w-full p-6 text-slate-800">
+        <div className="fixed inset-0 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-3 sm:p-4 z-50">
+          <div className="bg-white rounded-xl border border-slate-200 shadow-2xl max-w-md w-full p-4 sm:p-6 text-slate-800 max-h-[90vh] overflow-y-auto">
             <div className="flex items-center space-x-3 mb-4">
               <div className="w-10 h-10 rounded-lg bg-gov-navy text-white flex items-center justify-center font-bold">
                 <Shield className="w-5 h-5" />

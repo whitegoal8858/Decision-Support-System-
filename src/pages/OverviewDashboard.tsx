@@ -170,7 +170,7 @@ export const OverviewDashboard: React.FC<OverviewDashboardProps> = ({
       )}
 
       {/* KPI Cards Grid */}
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4">
         {/* Total Projects */}
         <div className="bg-white p-4 rounded-xl border border-slate-200 shadow-xs">
           <div className="flex items-center justify-between text-slate-500 text-xs font-medium">

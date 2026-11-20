@@ -282,8 +282,8 @@ export const UserManagementPage: React.FC<UserManagementPageProps> = ({
 
       {/* Modal: Register New Contractor / Vendor */}
       {showAddVendorModal && (
-        <div className="fixed inset-0 bg-slate-900/50 backdrop-blur-xs flex items-center justify-center p-4 z-50">
-          <div className="bg-white rounded-xl border border-slate-200 shadow-2xl max-w-lg w-full p-6 text-slate-800 animate-fadeIn">
+        <div className="fixed inset-0 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-3 sm:p-4 z-50">
+          <div className="bg-white rounded-xl border border-slate-200 shadow-2xl max-w-lg w-full p-4 sm:p-6 text-slate-800 max-h-[90vh] overflow-y-auto animate-fadeIn">
             <div className="flex items-center justify-between pb-3 border-b border-slate-100 mb-4">
               <div className="flex items-center space-x-2.5">
                 <div className="w-8 h-8 rounded-lg bg-amber-500 text-white flex items-center justify-center font-bold">
@@ -362,7 +362,7 @@ export const UserManagementPage: React.FC<UserManagementPageProps> = ({
                 />
               </div>
 
-              <div className="grid grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {vendorForm.role === 'vendor' ? (
                   <div>
                     <label className="block text-xs font-bold text-slate-700 mb-1">
@@ -409,7 +409,7 @@ export const UserManagementPage: React.FC<UserManagementPageProps> = ({
                 </div>
               </div>
 
-              <div className="grid grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div>
                   <label className="block text-xs font-bold text-slate-700 mb-1">
                     Official Login Email *

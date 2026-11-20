@@ -133,15 +133,15 @@ export const AIAssistantPage: React.FC<AIAssistantPageProps> = ({ initialPrompt 
           return (
             <div
               key={idx}
-              className={`p-5 rounded-xl border shadow-xs ${
+              className={`p-4 sm:p-5 rounded-xl border shadow-xs ${
                 isUser
-                  ? 'bg-blue-50/60 border-blue-200 ml-12'
-                  : 'bg-white border-slate-200 mr-8'
+                  ? 'bg-blue-50/60 border-blue-200 ml-2 sm:ml-12'
+                  : 'bg-white border-slate-200 mr-2 sm:mr-8'
               }`}
             >
-              <div className="flex items-center justify-between mb-2">
-                <div className="flex items-center space-x-2">
-                  <div className={`w-6 h-6 rounded flex items-center justify-center text-xs font-bold ${
+              <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
+                <div className="flex flex-wrap items-center gap-2">
+                  <div className={`w-6 h-6 rounded flex items-center justify-center text-xs font-bold shrink-0 ${
                     isUser ? 'bg-blue-600 text-white' : 'bg-gov-navy text-white'
                   }`}>
                     {isUser ? 'U' : 'AI'}

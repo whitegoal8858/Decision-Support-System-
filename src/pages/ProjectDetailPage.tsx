@@ -98,7 +98,7 @@ export const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({
   return (
     <div className="space-y-6">
       {/* Back Button & Top Banner */}
-      <div className="flex items-center justify-between">
+      <div className="flex flex-wrap items-center justify-between gap-2">
         <button
           onClick={onBack}
           className="inline-flex items-center text-xs font-semibold text-slate-600 hover:text-gov-navy transition-colors bg-white px-3 py-1.5 rounded-lg border border-slate-200 shadow-xs"
@@ -112,16 +112,16 @@ export const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({
             onClick={() => onAskAIAboutProject(project.project_name)}
             className="inline-flex items-center text-xs font-semibold bg-blue-50 text-blue-700 border border-blue-200 px-3 py-1.5 rounded-lg hover:bg-blue-100 transition-colors shadow-xs"
           >
-            Ask AI Assistant About This Project
+            Ask AI Assistant
           </button>
         </div>
       </div>
 
       {/* Hero Dossier Card */}
-      <div className="bg-white rounded-xl border border-slate-200 shadow-xs p-6">
+      <div className="bg-white rounded-xl border border-slate-200 shadow-xs p-4 sm:p-6">
         <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-5 border-b border-slate-100">
           <div>
-            <div className="flex items-center space-x-2">
+            <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
               <span className="font-mono text-xs font-bold px-2 py-0.5 rounded bg-slate-100 text-gov-navy border border-slate-200">
                 {project.external_project_id}
               </span>
@@ -138,7 +138,7 @@ export const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({
                 Internal UUID: {project.project_id.slice(0, 8)}...
               </span>
             </div>
-            <h1 className="text-xl font-bold text-slate-900 mt-1.5">
+            <h1 className="text-lg sm:text-xl font-bold text-slate-900 mt-1.5">
               {project.project_name}
             </h1>
             <p className="text-xs text-slate-500 mt-1 flex flex-wrap items-center gap-x-4 gap-y-1">
@@ -150,8 +150,8 @@ export const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({
             </p>
           </div>
 
-          <div className="flex items-center gap-3">
-            <div className="text-right">
+          <div className="flex items-center gap-3 self-start sm:self-auto">
+            <div className="text-left sm:text-right">
               <div className="text-[11px] text-slate-400 font-medium">Approved DPR Outlay</div>
               <div className="text-xl font-bold text-slate-900">₹{(project.approved_budget / 1e7).toFixed(2)} Cr</div>
               {project.revised_budget && (

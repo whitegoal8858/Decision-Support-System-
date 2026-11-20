@@ -323,8 +323,8 @@ export const ProjectsPage: React.FC<ProjectsPageProps> = ({ onSelectProject, cur
 
       {/* New Project Registration Modal */}
       {showCreateModal && (
-        <div className="fixed inset-0 bg-slate-900/40 backdrop-blur-xs flex items-center justify-center p-4 z-50">
-          <div className="bg-white rounded-xl border border-slate-200 shadow-xl max-w-2xl w-full p-6 max-h-[90vh] overflow-y-auto">
+        <div className="fixed inset-0 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-3 sm:p-4 z-50">
+          <div className="bg-white rounded-xl border border-slate-200 shadow-xl max-w-2xl w-full p-4 sm:p-6 max-h-[90vh] overflow-y-auto">
             <h2 className="text-base font-bold text-slate-900 mb-1">Register New Tourism Infrastructure Project</h2>
             <p className="text-xs text-slate-500 mb-4">Add new administrative record to the statewide monitoring registry</p>
 
@@ -336,7 +336,7 @@ export const ProjectsPage: React.FC<ProjectsPageProps> = ({ onSelectProject, cur
             )}
 
             <form onSubmit={handleCreateSubmit} className="space-y-4 text-xs">
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                 <div>
                   <label className="block font-medium text-slate-700 mb-1">External Government Project ID *</label>
                   <input
@@ -377,7 +377,7 @@ export const ProjectsPage: React.FC<ProjectsPageProps> = ({ onSelectProject, cur
                 />
               </div>
 
-              <div className="grid grid-cols-3 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
                 <div>
                   <label className="block font-medium text-slate-700 mb-1">District *</label>
                   <input
@@ -416,7 +416,7 @@ export const ProjectsPage: React.FC<ProjectsPageProps> = ({ onSelectProject, cur
                 </div>
               </div>
 
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                 <div>
                   <label className="block font-medium text-slate-700 mb-1">Implementing Agency *</label>
                   <input
@@ -452,7 +452,7 @@ export const ProjectsPage: React.FC<ProjectsPageProps> = ({ onSelectProject, cur
                 />
               </div>
 
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                 <div>
                   <label className="block font-medium text-slate-700 mb-1">Start Date *</label>
                   <input

@@ -50,7 +50,7 @@ export const ProjectMonitoringPage: React.FC<ProjectMonitoringPageProps> = ({ on
         </div>
 
         {/* Filter Pills */}
-        <div className="flex items-center gap-2">
+        <div className="flex flex-wrap items-center gap-2">
           <button
             onClick={() => setFilterType('all')}
             className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors ${
